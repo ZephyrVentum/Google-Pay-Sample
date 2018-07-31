@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GooglePaySample</string>
+    <string name="ready_to_pay_text">Ready to pay!</string>
+    <string name="not_ready_to_pay_text">Something went wrong :(</string>
+</resources>
