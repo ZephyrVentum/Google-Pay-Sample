@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isReadyToPay"
+            type="Boolean" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/googlePayStatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{isReadyToPay? @string/ready_to_pay_text : @string/not_ready_to_pay_text}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/payImageButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Payment Status" />
+
+        <ImageButton
+            android:id="@+id/payImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@null"
+            android:padding="8dp"
+            android:onClick="onPayButtonClicked"
+            android:src="@drawable/ic_google_pay_mark"
+            app:layout_constraintBottom_toBottomOf="@id/googlePayStatusTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/googlePayStatusTextView"
+            app:layout_constraintTop_toTopOf="@id/googlePayStatusTextView" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
