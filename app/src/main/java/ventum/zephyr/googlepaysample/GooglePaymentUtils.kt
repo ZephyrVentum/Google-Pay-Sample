@@ -8,7 +8,7 @@ import java.util.*
 object GooglePaymentUtils {
     const val LOAD_PAYMENT_DATA_REQUEST_CODE = 1001
 
-    fun createGoogleApiClientForPay(context: Context): PaymentsClient =
+    fun createPaymentsClient(context: Context): PaymentsClient =
             Wallet.getPaymentsClient(
                     context,
                     Wallet.WalletOptions.Builder()
@@ -23,8 +23,7 @@ object GooglePaymentUtils {
         val task = paymentsClient.isReadyToPay(request)
         task.addOnCompleteListener {
             try {
-                val result = task.getResult(ApiException::class.java)
-                callback.invoke(result)
+                callback.invoke(task.result)
             } catch (exception: ApiException) {
                 exception.printStackTrace()
                 callback.invoke(false)

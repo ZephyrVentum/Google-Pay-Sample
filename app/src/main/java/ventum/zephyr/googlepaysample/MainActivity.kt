@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mPaymentsClient = GooglePaymentUtils.createGoogleApiClientForPay(this)
-
+        mPaymentsClient = GooglePaymentUtils.createPaymentsClient(this)
         GooglePaymentUtils.isReadyToPay(mPaymentsClient) {
             mBinding.isReadyToPay = it
         }
